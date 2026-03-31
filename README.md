@@ -1,13 +1,15 @@
 
 # Integrating Bulk RNA-seq Data to Genome Pipeline
 
-### By Leo McMahon
+***By Leo McMahon***
 
 This pipeline outlines how to go from raw bulk RNA-seq reads, in this case drawn from the NCBI Sequence Read Archive (SRA) using the SRA Toolkit.
 
 In using this pipeline, different projects will have to start at different steps. For example, if you already have your .fastq files ready from another source other than SRA, you can obviously skip the first step of downloading the .fastq files from NCBI.
 
-Additionally, in using the MASTERPROCESS file, all of the necessary steps will be executed sequentially with no outside input from the user. However, if you only want to use one of the steps, the individual files will also be included so that a step-by-step process can be used if necessary.
+Additionally, in using the MASTERPROCESS file, all of the necessary steps (starting when .fastq files have already been collected) will be executed sequentially with no outside input from the user. However, if you only want to use one of the steps, the individual files will also be included so that a step-by-step process can be used if necessary.
+
+## Step 0: Clone this repository to Pod
 
 ## Step 1: Collect your data
 
@@ -25,7 +27,7 @@ At the top there should be a box with each OS' own SRA Toolkit binaries. Click o
 
 Now you will need to find the pathname of your newly downloaded file. On a Mac, I use the Finder App to search for sratoolkit and then Ctrl+Click on the file and select "Copy file as Pathname". Then it is copied to your clipboard.
 
-### Transfer SRA Toolkit .zip File to Pod Account
+### Transfer SRA Toolkit .zip file to Pod account
 
 Now open *a new terminal window* (if you have a pod window open, don't close it, just press and hold the Terminal icon on your screen until the New Window option appears, then click that).
 
