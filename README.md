@@ -11,6 +11,12 @@ Additionally, in using the MASTERPROCESS file, all of the necessary steps (start
 
 ## Step 0: Clone this repository to Pod
 
+You can do this any way you know how, but the most beginner-friendly way is as follows:
+
+In the home page of this repository, click the blue Code icon and then press Download Zip at the bottom of the menu.
+
+Then find the pathname for this file 
+
 ## Step 1: Collect your data
 
 If you already have your .fastq files, skip this step. But if you are accessing your files from the NCBI SRA, follow this step.
