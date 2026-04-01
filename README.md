@@ -15,7 +15,19 @@ You can do this any way you know how, but the most beginner-friendly way is as f
 
 In the home page of this repository, click the blue Code icon and then press Download Zip at the bottom of the menu.
 
-Then find the pathname for this file 
+Then find the pathname for this file (on Mac I search for it in the Finder app and then Ctrl+Click and select "Copy file as Pathname". Then it is in your clipboard.
+
+Then we will transfer the zip file to our pod account using `scp` in a Terminal Window:
+
+```bash
+scp /path/to/06-Integration_Project-main.zip yourUCSBnetID@pod-login1.cnsi.ucsb.edu:/home/yourUCSBnetID/
+```
+
+So for me this was:
+
+```bash
+scp /Users/leomcmahon/Downloads/06-Integration_Project-main.zip leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/
+```
 
 ## Step 1: Collect your data
 
@@ -46,23 +58,43 @@ scp /copy_of_the_filename_from_previous_step/sratoolkit.current-alma_linux64.tar
 So for me this was:
 
 ```bash
-scp /Users/leomcmahon/000-LabStuff/06-Integration_Project/1-SRA_Toolkit/sratoolkit.current-alma_linux64.tar.gz leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/06-Integration_Project/1-SRA_Toolkit
+scp /Users/leomcmahon/000-LabStuff/06-Integration_Project/1-SRA_Toolkit/sratoolkit.current-alma_linux64.tar.gz leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/06-Integration_Project-main/1-SRA_Toolkit
 ```
 
 You will have to enter the password to your pod account to complete the transfer.
 
+### Unzip SRA Toolkit
 
-
-Now that the zip file is in your Pod directory, 
-
-First, in your home project directory (in the Pod), create the directory 1-SRA_Toolkit:
+Now that the zip file is in your Pod directory, log into your Pod account and enter the SRA Toolkit directory:
 
 ```bash
-mkdir 1-SRA_Toolkit
+cd 06-Integration_Project-main/1-SRA_Toolkit/
 ```
 
-Then enter the directory:
+Check that this works by running the `ls` command. You should have `SRA_placeholder.md` file and your downloaded zip file.
+
+Now run the following to unzip the SRA Toolkit:
 
 ```bash
-cd 1-SRA_Toolkit/
+tar -vxzf sratoolkit.current-alma_linux64.tar.gz
 ```
+
+Then append the path to the binaries to your PATH environment variable (fill in the X's with the version that was downloaded; if you need to check this, run `ls` and see what numbers are in the name of the new unzipped directory)
+
+```bash
+export PATH=$PWD/sratoolkit.3.X.X-alma_linux64/bin:$PATH
+```
+
+Now, run the following to check for success:
+
+```bash
+which fastq-dump
+```
+
+This should point somewhere in your SRA Toolkit directory. If that works, you will have everything you need to download SRA files into your pod account.
+
+### Downloading the files
+
+
+
+
