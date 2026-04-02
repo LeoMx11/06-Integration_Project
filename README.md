@@ -99,7 +99,62 @@ which fastq-dump
 
 This should point somewhere in your SRA Toolkit directory. If that works, you will have everything you need to download SRA files into your pod account.
 
-### Downloading the files
+### Finding correct SRA code
+
+Now that you have all of the programs necessary, you need to find where your data is stored in the SRA. This may take some digging, but if your data comes from a paper, there should be some link to the sequences in the related links or data section. I will show where I found mine.
+
+In my paper of focus (https://pubmed.ncbi.nlm.nih.gov/25542255/) there is a link entitled SRA in the related links section:
+
+![](image here)
+
+Clicking this brings me to a list of all of the samples from this paper. If I wanted to download only a particular one or few, I could click on them and find their individual codes for prefetching. For mine, after clicking on an individual link, the run code is what I used to set up the download.
+
+![](image here)
+
+However, I want to download all of these. The way I was able to do that is by finding a code that encompasses all of my samples. For my data, the easiest way to find it was by clicking on one sample, then under the Study heading, there is a code that begins with SR (mine was SRP048687) 
+
+![](image here)
+
+### Downloading the data into Pod
+
+Now that you have your code for the larger dataset (or if you are just doing a few individual runs, use each code individually), we will run the following code usign your codes:
+
+```bash
+prefetch SRP048687
+```
+
+Since this one code contains 42 different samples of millions of bases, this might take a while to run, so take a well-earned break while that downloads in the background. 
+
+Once that is done, you will need to actually extract fastq files from this location. For this, I recommend running this code (assuming your codes are SRR's):
+
+```bash
+for srr in SRR*; do
+    fasterq-dump "$srr" --outdir ~/06-Integration_Project-main/0-DATA/FASTQ_files
+done
+```
+
+Now you have all of the necessary fastq files in your Pod!
+
+## Step 1.5: Rename your data (optional but recommended)
+
+At this point, you could move on to step 2 and run MASTERPROCES now, but when the program is finished running your R dataframe's column names will be basically just what the fastq file names are. Thus if you leave it as SRR4829023, there's not much information about the sample. So at this point I like to leave some sort of signifier as to what the sample is. In my example dataset, the samples are described by their fertility, the name of the colony they came from, and the stage they came from. If you want to use my graphing program later on to graph your data, you should separate all of this information by underscores for each sample. 
+
+How to do this is simple; we use the `mv` function to rename the datasets to what we need. As described above, here is an example of how I renamed one of my samples:
+
+```bash
+mv SRR1604821_1.fastq F_801_A1_1.fastq
+mv SRR1604821_2.fastq F_801_A1_2.fastq
+```
+
+Be careful to keep both strands (this is the 1 and 2 at the end of the names) consistent with all else being identical except the strand names.
+
+Once your fastq files are all named as you want your column names at the end, you are ready for the next step.
+
+## Step 2: MASTERPROCESS
+
+
+
+
 
 
 
