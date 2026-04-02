@@ -15,7 +15,7 @@ You can do this any way you know how, but the most beginner-friendly way is as f
 
 In the home page of this repository, click the blue Code icon and then press Download Zip at the bottom of the menu.
 
-Then find the pathname for this file (on Mac I search for it in the Finder app and then Ctrl+Click and select "Copy file as Pathname". Then it is in your clipboard.
+Then find the pathname for this file (on Mac I search for it in the Finder app and then Ctrl+Click and select "Copy file as Pathname"). Then it is in your clipboard.
 
 Then we will transfer the zip file to our pod account using `scp` in a Terminal Window:
 
@@ -27,6 +27,12 @@ So for me this was:
 
 ```bash
 scp /Users/leomcmahon/Downloads/06-Integration_Project-main.zip leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/
+```
+
+Now that the zip file is in your Pod, simply go to your Pod's home page and perform:
+
+```bash
+unzip 06-Integration_Project-main.zip
 ```
 
 ## Step 1: Collect your data
@@ -52,7 +58,7 @@ Now open *a new terminal window* (if you have a pod window open, don't close it,
 In this new window, you will use the `scp` function to transfer this file onto your pod account. The general format of this function is as follows:
 
 ```bash
-scp /copy_of_the_filename_from_previous_step/sratoolkit.current-alma_linux64.tar.gz yourUCSBnetID@pod-login1.cnsi.ucsb.edu:/home/yourUCSBnetID/Project_Home_Directory/1-SRA_Toolkit
+scp /copy_of_the_filename_from_previous_step/sratoolkit.current-alma_linux64.tar.gz yourUCSBnetID@pod-login1.cnsi.ucsb.edu:/home/yourUCSBnetID/06-Integration_Project-main/1-SRA_Toolkit
 ```
 
 So for me this was:
