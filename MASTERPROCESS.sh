@@ -9,6 +9,8 @@ if [ -z "$USER_ID" ]; then
   exit 1
 fi
 
+source ~/miniconda3/etc/profile.d/conda.sh
+
 # Trimmomatic
 
 conda env create -f /home/${USER_ID}/06-Integration_Project-main/2-Conda_envs/trimmo.yml
