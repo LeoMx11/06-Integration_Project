@@ -1,10 +1,13 @@
 import os
+import sys
 import subprocess
 
+userID = sys.argv[1]
+
 # Set paths
-base_dir = "~/06-Integration_Project-main/0-DATA/FASTQ_files"
-output_dir = "~/06-Integration_Project-main/3-TRIM"
-adapters_path = "~/06-Integration_Project-main/3-TRIM/Trimmomatic/TruSeq3-PE.fa"  # Updated adapter path
+base_dir = f"/home/{userID}/06-Integration_Project-main/0-DATA/FASTQ_files"
+output_dir = f"/home/{userID}/06-Integration_Project-main/3-TRIM"
+adapters_path = f"/home/{userID}/06-Integration_Project-main/3-TRIM/Trimmomatic/TruSeq3-PE.fa"  # Updated adapter path
 threads = 8  # Number of threads to use for Trimmomatic
 
 # Create processed_FASTQ directory
