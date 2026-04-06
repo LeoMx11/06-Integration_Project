@@ -158,6 +158,31 @@ Once your fastq files are all named as you want your column names at the end, yo
 
 Now we must make sure that the program knows what it is aligning to. Locate your genome in whatever form it currently exists in. You will first have to convert this into a .gtf file and a .fa file (essentially an annotation and the actual cDNA reads). For me, my genome had a fasta (.fa) file already connected, with a .gff3 file for annotation. A gff3 file contains all of the information of a gtf file and more, so we just have to run a simple script to extract the gtf file from this data.
 
+First though, transfer your genome and fasta file into the 4-MAP folder using the same `scp` framework we have used many times before (again, always in a non-Pod-connected Terminal windown). I will show my code but obviously the file names to your genome files in your personal computer will be different from mine (plus a different UCSB netID).
+
+```bash
+scp /Users/leomcmahon/Downloads/bs_primary_asm.gff3 leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/06-Integration_Project-main/4-MAP
+scp /Users/leomcmahon/Downloads/bs_primary_asm.fa leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/06-Integration_Project-main/4-MAP
+```
+
+Now in your Pod window, navigate to the 4-MAP directory:
+
+```bash
+cd ~/06-Integration_Project-main/4-MAP/
+```
+
+And run the following code (with your genome name instead of mine).
+
+
+```bash
+conda env create -f ~/06-Integration_Project-main/2-Conda_envs/gffenv.yml
+conda activate gffenv
+gffread bs_primary_asm.gff3 -T -o bs_primary_asm.gtf
+conda deactivate
+```
+
+Now you should have new gtf file ready for use in your 4-MAP folder.
+
 
 
 
