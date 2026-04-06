@@ -217,10 +217,10 @@ There should also be a MASTERPROCESS.sh file and a MASTERPROCESS.sbatch in your 
 
 ## Step 3: Run MASTERPROCESS
 
-Finally, navigate to your home directory with `cd ~`. If you are on the UCSB Pod, simply run:
+Finally, navigate to your home directory with `cd ~`. If you are on the UCSB Pod, simply run: (with your UCSB netID instead of mine)
 
 ```bash
-sbatch MASTERPROCESS.sbatch
+sbatch MASTERPROCESS.sbatch leomcmahon
 ```
 
 If not, this will likely be a large memory and time intensive task, so if you have some way of running the MASTERPROCESS.sh file, best of luck to you.
