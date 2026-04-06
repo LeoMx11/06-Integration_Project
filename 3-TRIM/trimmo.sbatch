@@ -24,6 +24,6 @@ else
 fi
 conda activate trimmo
 
-echo "Starting at: $(date)"
+echo "Starting trimmomatic at: $(date)"
 python3 trimmomatic.py
-echo "Finished at: $(date)"
+echo "Finished trimmomatic at: $(date)"
