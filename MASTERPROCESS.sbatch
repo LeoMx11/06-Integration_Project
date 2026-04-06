@@ -29,6 +29,8 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+conda init
+
 echo "Starting at: $(date)"
 bash MASTERPROCESS.sh "$1"
 echo "Finished at: $(date)"
