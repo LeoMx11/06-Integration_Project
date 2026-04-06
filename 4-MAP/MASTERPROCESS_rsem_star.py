@@ -1,12 +1,18 @@
 import os
+import sys
 import subprocess
 
+userID = sys.argv[1]
+
 # Directories
-base_dir = "~/06-Integration_Project/3-TRIM/processed_FASTQ"
-cds_fasta = "~/06-Integration_Project/4-MAP/bs_primary_asm.fa"
-annotation_gtf = "~/06-Integration_Project/4-MAP/bs_primary_asm.gtf"
-rsem_reference_dir = "~/06-Integration_Project/4-MAP/reference"
-output_dir = "~/06-Integration_Project/4-MAP/rsem_results"
+base_dir = f"/home/{userID}/06-Integration_Project-main/3-TRIM/processed_FASTQ"
+genome_dir = f"/home/{userID}/06-Integration_Project-main/4-MAP/GENOME"
+rsem_reference_dir = f"/home/{userID}/06-Integration_Project/4-MAP/reference"
+output_dir = f"/home/{userID}/06-Integration_Project-main/4-MAP/rsem_results"
+
+for root, dirs, files in os.walk(genome_dir):
+    annotation_gtf = [f for f in files if '.gtf' in f][0]
+    cds_fasta = [f for f in files if '.fa' in f][0]
 
 # Log files
 output_log = "output.log"
@@ -84,4 +90,6 @@ with open(output_log, 'w') as out_f, open(error_log, 'w') as err_f:
         calculate_expression([pair['r1'], pair['r2']], pair['sample_name'], rsem_reference_dir, output_dir)
 
     print("RSEM quantification complete.")
+
+
 
