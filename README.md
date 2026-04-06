@@ -161,14 +161,14 @@ Now we must make sure that the program knows what it is aligning to. Locate your
 First though, transfer your genome and fasta file into the 4-MAP folder using the same `scp` framework we have used many times before (again, always in a non-Pod-connected Terminal windown). I will show my code but obviously the file names to your genome files in your personal computer will be different from mine (plus a different UCSB netID).
 
 ```bash
-scp /Users/leomcmahon/Downloads/bs_primary_asm.gff3 leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/06-Integration_Project-main/4-MAP
-scp /Users/leomcmahon/Downloads/bs_primary_asm.fa leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/06-Integration_Project-main/4-MAP
+scp /Users/leomcmahon/Downloads/bs_primary_asm.gff3 leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/06-Integration_Project-main/4-MAP/GENOME
+scp /Users/leomcmahon/Downloads/bs_primary_asm.fa leomcmahon@pod-login1.cnsi.ucsb.edu:/home/leomcmahon/06-Integration_Project-main/4-MAP/GENOME
 ```
 
-Now in your Pod window, navigate to the 4-MAP directory:
+Now in your Pod window, navigate to the GENOME directory:
 
 ```bash
-cd ~/06-Integration_Project-main/4-MAP/
+cd ~/06-Integration_Project-main/4-MAP/GENOME/
 ```
 
 And run the following code (with your genome name instead of mine).
@@ -181,8 +181,49 @@ gffread bs_primary_asm.gff3 -T -o bs_primary_asm.gtf
 conda deactivate
 ```
 
-Now you should have new gtf file ready for use in your 4-MAP folder.
+Now you should have new gtf file ready for use in your GENOME folder.
 
+## Step 2.999: Final checks
+
+Going down the line, I will say what should be in which directory, you may check these but if you followed the instructions it should all be in place:
+
+### 0-DATA/FASTQ_files
+
+This should have all of your fastq files that you want to trim and map to the genome, titled so that you know what each one represents, ideally separating any different groupings by underscores (like Fertile_A1_sample1.fastq).
+
+### 1-SRA_Toolkit
+
+No need to check, we are done with this already.
+
+### 2-Conda_envs
+
+Should contain `gffenv.yml`, `rsem_env.yml`, and `trimmo.yml`, which should have been loaded in with the original loading from GitHub.
+
+### 3-TRIM
+
+Should contain `MASTERPROCESS_trimmomatic.py`, `Trimmomatic` (directory), `trimmo.sbatch`, `trimmomatic.py`
+
+You will not need to use the latter two, they are there if you want to run one step at a time.
+
+### 4-MAP
+
+Should contain `MASTERPROCESS_rsem_star.py`, `build_ref.sbatch` (for single steps, not necessary), `GENOME` (directory), `leo_rsem_star.py` (also unnecessary), `mappo.sbatch` (also unnecessary)
+
+Also check in your `GENOME` directory that there is exactly ONE .gtf annotation file for your genome and exactly ONE fasta file (any more .gtf's or .fa's could bring errors).
+
+### MASTERPROCESSes
+
+There should also be a MASTERPROCESS.sh file and a MASTERPROCESS.sbatch in your home directory.
+
+## Step 3: Run MASTERPROCESS
+
+Finally, navigate to your home directory with `cd ~`. If you are on the UCSB Pod, simply run:
+
+```bash
+sbatch MASTERPROCESS.sbatch
+```
+
+If not, this will likely be a large memory and time intensive task, so if you have some way of running the MASTERPROCESS.sh file, best of luck to you.
 
 
 
