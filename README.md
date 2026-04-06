@@ -125,6 +125,10 @@ prefetch SRP048687
 
 Since this one code contains 42 different samples of millions of bases, this might take a while to run, so take a well-earned break while that downloads in the background. 
 
+It is worth checking now that you have all of the files you expect to have. You can run `ls` in this directory and ensure that no number is missing (as codes from the same group will often be sequential, so just cehcking that there are no values missing from the list should be easy enough).
+
+If any are missing, run the `prefetch` command on only those values to fill in the gap.
+
 Once that is done, you will need to actually extract fastq files from this location. For this, I recommend running this code (assuming your codes are SRR's):
 
 ```bash
@@ -150,7 +154,13 @@ Be careful to keep both strands (this is the 1 and 2 at the end of the names) co
 
 Once your fastq files are all named as you want your column names at the end, you are ready for the next step.
 
-## Step 2: MASTERPROCESS
+## Step 2: Transfer genome into Pod (as a .gtf file)
+
+Now we must make sure that the program knows what it is aligning to. Locate your genome in whatever form it currently exists in. You will first have to convert this into a .gtf file and a .fa file (essentially an annotation and the actual cDNA reads). For me, my genome had a fasta (.fa) file already connected, with a .gff3 file for annotation. A gff3 file contains all of the information of a gtf file and more, so we just have to run a simple script to extract the gtf file from this data.
+
+
+
+
 
 
 
