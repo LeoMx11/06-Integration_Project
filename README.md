@@ -3,7 +3,7 @@
 
 ***By Leo McMahon***
 
-This pipeline outlines how to go from raw bulk RNA-seq reads, in this case drawn from the NCBI Sequence Read Archive (SRA) using the SRA Toolkit.
+This pipeline outlines how to go from raw bulk RNA-seq reads (in this case drawn from the NCBI Sequence Read Archive (SRA) using the SRA Toolkit) to a fully quantified and TMM normalized cell count matrix.
 
 In using this pipeline, different projects will have to start at different steps. For example, if you already have your .fastq files ready from another source other than SRA, you can obviously skip the first step of downloading the .fastq files from NCBI.
 
