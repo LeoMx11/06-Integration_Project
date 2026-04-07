@@ -32,8 +32,8 @@ def process_fastq(base_dir):
 
     for i in range(0, len(fastq_files), 2):  # Assuming paired files are grouped together
         try:
-            forward_read = os.path.join(fastq_files[i])
-            reverse_read = os.path.join(fastq_files[i + 1])
+            forward_read = os.path.join(base_dir, fastq_files[i])
+            reverse_read = os.path.join(base_dir, fastq_files[i + 1])
             sample_id = os.path.basename(fastq_files[i])[:-8]
 
             # Output files in the stage's subdirectory
