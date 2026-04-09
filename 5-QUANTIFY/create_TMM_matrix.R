@@ -1,9 +1,6 @@
 
 userID = commandArgs()[1]
 
-
-
-setwd(paste0("/home/", userID, "/06-Integration_Project-main/4-MAP/rsem_results"))
 library(edgeR)
 library(dplyr)
 
