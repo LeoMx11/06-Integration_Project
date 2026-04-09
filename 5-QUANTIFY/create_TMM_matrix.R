@@ -1,5 +1,26 @@
 
-userID = commandArgs()[1]
+args = commandArgs(trailingOnly = TRUE)
+userID = args[1]
+
+base_dir = file.path("/home",
+                     userID, 
+                     "06-Integration_Project-main",
+                     "4-MAP",
+                     "rsem_results")
+
+output_indiv_dir = file.path("/home",
+                             userID, 
+                             "06-Integration_Project-main",
+                             "5-QUANTIFY",
+                             "output_csvs")
+
+output_final_csv = file.path("/home",
+                             userID, 
+                             "06-Integration_Project-main",
+                             "5-QUANTIFY",
+                             "TMM_final.csv")
+
+setwd(base_dir)
 
 library(edgeR)
 library(dplyr)
@@ -9,6 +30,8 @@ files = list.files()
 mapped_data = list()
 
 for (file in files){
+  
+  print(file)
       
   vec = base::strsplit(file, split="\\.")[[1]]
   title = vec[1]
@@ -23,10 +46,9 @@ for (file in files){
   }
 }
 
-for (i in 1:length(mapped_data)){
-  write.csv(get(mapped_data[[i]]), paste0("/home/", userID, 
-                                          "/06-Integration_Project-main/5-QUANTIFY/output_csvs/", 
-                                          mapped_data[[i]]))
+for (i in seq_along(mapped_data)){
+  write.csv(get(mapped_data[[i]]), file.path(output_indiv_dir,
+                                             paste0(mapped_data[[i]], ".csv")))
 }
 
 
@@ -75,4 +97,4 @@ tmm_counts <- cpm(dge, normalized.lib.sizes = TRUE)
 tmm_df <- cbind(genes, tmm_counts)
 
 # write to new csv
-write.csv(tmm_df, paste0("/home/", userID, "/06-Integration_Project-main/5-QUANTIFY/final_output.csv"))
+write.csv(tmm_df, output_final_csv)
