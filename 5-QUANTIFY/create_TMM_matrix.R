@@ -30,8 +30,6 @@ files = list.files()
 mapped_data = list()
 
 for (file in files){
-  
-  print(file)
       
   vec = base::strsplit(file, split="\\.")[[1]]
   title = vec[1]
