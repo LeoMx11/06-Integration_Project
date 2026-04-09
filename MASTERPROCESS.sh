@@ -35,3 +35,13 @@ echo "Starting RSEM/STAR at: $(date)"
 python3 MASTERPROCESS_rsem_star.py ${USER_ID}
 echo "Finished RSEM/STAR at: $(date)"
 
+# Performing TMM normalization and .csv creation
+
+conda env create -f /home/${USER_ID}/06-Integration_Project-main/2-Conda_envs/tmm_env.yml
+conda activate tmm_env
+cd /home/${USER_ID}/06-Integration_Project-main/5-QUANTIFY
+echo "Starting TMM normalization and .csv creation at: $(date)"
+Rscript create_TMM_matrix.R ${USER_ID}
+echo "Finished TMM normalization and .csv creation at: $(date)"
+
+
