@@ -197,7 +197,7 @@ No need to check, we are done with this already.
 
 ### 2-Conda_envs
 
-Should contain `gffenv.yml`, `rsem_env.yml`, and `trimmo.yml`, which should have been loaded in with the original loading from GitHub.
+Should contain `gffenv.yml`, `rsem_env.yml`, `tmm_env.yml`, and `trimmo.yml`, which should have been loaded in with the original loading from GitHub.
 
 ### 3-TRIM
 
@@ -210,6 +210,10 @@ You will not need to use the latter two, they are there if you want to run one s
 Should contain `MASTERPROCESS_rsem_star.py`, `build_ref.sbatch` (for single steps, not necessary), `GENOME` (directory), `leo_rsem_star.py` (also unnecessary), `mappo.sbatch` (also unnecessary)
 
 Also check in your `GENOME` directory that there is exactly ONE .gtf annotation file for your genome and exactly ONE fasta file (any more .gtf's or .fa's could bring errors).
+
+### 5-QUANTIFY
+
+This should contain an empty `output_csvs` folder and the `create_TMM_matrix.R` file
 
 ### MASTERPROCESSes
 
@@ -225,6 +229,7 @@ sbatch MASTERPROCESS.sbatch leomcmahon
 
 If not, this will likely be a large memory and time intensive task, so if you have some way of running the MASTERPROCESS.sh file, best of luck to you.
 
+After all is said and done
 
 
 
