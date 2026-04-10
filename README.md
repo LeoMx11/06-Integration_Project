@@ -221,7 +221,7 @@ There should also be a MASTERPROCESS.sh file and a MASTERPROCESS.sbatch in your 
 
 ## Step 3: Run MASTERPROCESS
 
-Finally, navigate to your home directory with `cd ~`. If you are on the UCSB Pod, simply run: (with your UCSB netID instead of mine)
+Finally, navigate to your home directory with `cd ~/06-Integration_Project-main`. If you are on the UCSB Pod, simply run: (with your UCSB netID instead of mine)
 
 ```bash
 sbatch MASTERPROCESS.sbatch leomcmahon
