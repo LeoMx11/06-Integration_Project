@@ -69,7 +69,7 @@ colnames(mapped_df) <- c("gene_id", mapped_data)
 mapped_df = as.data.frame(mapped_df)
 
 mapped_df <- mapped_df %>%
-  mutate(across(seq(2,43), as.numeric))
+  mutate(across(seq(2,length(mapped_df)), as.numeric))
 
 # Save gene IDs
 genes <- mapped_df$gene_id
