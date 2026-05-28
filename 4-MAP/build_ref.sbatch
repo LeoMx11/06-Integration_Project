@@ -19,7 +19,7 @@ mkdir reference
 
 rsem-prepare-reference \
   --star \
-  --gtf bs_primary_asm.gtf \
-  bs_primary_asm.fa \
+  --gtf GENOME/bs_primary_asm.gtf \
+  GENOME/bs_primary_asm.fa \
   reference/reference
 
