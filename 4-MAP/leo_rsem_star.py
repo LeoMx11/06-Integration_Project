@@ -2,11 +2,11 @@ import os
 import subprocess
 
 # Directories
-base_dir = "/home/leomcmahon/06-Integration_Project/3-TRIM/processed_FASTQ"
-cds_fasta = "/home/leomcmahon/06-Integration_Project/4-MAP/bs_primary_asm.fa"
-annotation_gtf = "/home/leomcmahon/06-Integration_Project/4-MAP/bs_primary_asm.gtf"
-rsem_reference_dir = "/home/leomcmahon/06-Integration_Project/4-MAP/reference"
-output_dir = "/home/leomcmahon/06-Integration_Project/4-MAP/rsem_results"
+base_dir = "/home/leomcmahon/06-Integration_Project-main/3-TRIM/processed_FASTQ"
+cds_fasta = "/home/leomcmahon/06-Integration_Project-main/4-MAP/bs_primary_asm.fa"
+annotation_gtf = "/home/leomcmahon/06-Integration_Project-main/4-MAP/bs_primary_asm.gtf"
+rsem_reference_dir = "/home/leomcmahon/06-Integration_Project-main/4-MAP/reference"
+output_dir = "/home/leomcmahon/06-Integration_Project-main/4-MAP/rsem_results"
 
 # Log files
 output_log = "output.log"
